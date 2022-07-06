@@ -44,15 +44,6 @@ function App() {
   return (
     <div>
       <div>
-      <input onChange={(e)=>{setciudad(e.target.value)}} value={ciudad} name="ciudad" placeholder="Departamento"/>
-        <input onChange={(e)=>{setescuela(e.target.value)}} value={escuela} name="escuela" placeholder="Escuela" />
-        <input onChange={(e)=>{setcurso(e.target.value)}} value={curso} name="curso" placeholder="Curso" />
-        <input onChange={(e)=>{setdivision(e.target.value)}} value={division} name="division" placeholder="Division" />
-        <input onChange={(e)=>{setorden(e.target.value)}} value={orden} name="orden" placeholder="Orden" />
-        <input onChange={(e)=>{setcodigo(e.target.value)}} value={codigo} name="codigo" placeholder="Codigo"/>
-        <input onChange={(e)=>{setmateria(e.target.value)}} value={materia} name="materia" placeholder="Materia"/>
-        <input onChange={(e)=>{sethoras(e.target.value)}} value={horas} name="horas" placeholder="Horas"/>
-        <input onChange={(e)=>{setturno(e.target.value)}} value={turno} name="turno" placeholder="Turno"/>
       </div>
       <table className="table">
         <thead>
@@ -69,6 +60,17 @@ function App() {
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td><input onChange={(e)=>{setciudad(e.target.value)}} value={ciudad} name="ciudad" placeholder="Departamento"/></td>
+            <td><input onChange={(e)=>{setescuela(e.target.value)}} value={escuela} name="escuela" placeholder="Escuela" /></td>
+            <td><input onChange={(e)=>{setcurso(e.target.value)}} value={curso} name="curso" placeholder="Curso" /></td>
+            <td><input onChange={(e)=>{setdivision(e.target.value)}} value={division} name="division" placeholder="Division" /></td>
+            <td><input onChange={(e)=>{setorden(e.target.value)}} value={orden} name="orden" placeholder="Orden" /></td>
+            <td><input onChange={(e)=>{setcodigo(e.target.value)}} value={codigo} name="codigo" placeholder="Codigo"/></td>
+            <td><input onChange={(e)=>{setmateria(e.target.value)}} value={materia} name="materia" placeholder="Materia"/></td>
+            <td><input onChange={(e)=>{sethoras(e.target.value)}} value={horas} name="horas" placeholder="Horas"/></td>
+            <td><input onChange={(e)=>{setturno(e.target.value)}} value={turno} name="turno" placeholder="Turno"/></td>
+          </tr>
           {
             data.map((d,i) => <tr key={i} scope='row'>
               <td className=''>{d.Ciudad.replace('0','').replace('5','').replace('3','').replace('7','')}</td>
