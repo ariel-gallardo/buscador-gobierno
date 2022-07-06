@@ -11,6 +11,9 @@ function App() {
   const [horas, sethoras] = useState('');
   const [turno, setturno] = useState('');
   const [codigo, setcodigo] = useState('');
+  const [orden, setorden] = useState('');
+  const [curso, setcurso] = useState('');
+  const [division, setdivision] = useState('');
 
 
   const filterData = () => {
@@ -18,6 +21,9 @@ function App() {
     setData(
       Pages
       .filter(e => e.Escuela.toString().toLocaleLowerCase().includes(escuela.toLocaleLowerCase()) )
+      .filter(e => e.Orden.toString().toLocaleLowerCase().includes(orden.toLocaleLowerCase()) )
+      .filter(e => e.Curso.toString().toLocaleLowerCase().includes(curso.toLocaleLowerCase()) )
+      .filter(e => e.Division.toString().toLocaleLowerCase().includes(division.toLocaleLowerCase()) )
       .filter(e => e.Materia.toString().toLocaleLowerCase().includes(materia.toLocaleLowerCase()) )
       .filter(e => e.Ciudad.toString().toLocaleLowerCase().includes(ciudad.toLocaleLowerCase()) )
       .filter(e => e.Horas.toString().toLocaleLowerCase().includes(horas.toLocaleLowerCase()) )
@@ -27,11 +33,11 @@ function App() {
   }
 
   useEffect(()=>{
-    if(escuela !== '' || materia!== '' || ciudad!== '' || horas !== '' || turno !== '' || codigo !== '' )
+    if(escuela !== '' || materia!== '' || ciudad!== '' || horas !== '' || turno !== '' || codigo !== '' || orden !== '' || curso !== ''  || division !== '' )
       filterData()
     else
       setData(Pages)
-  },[escuela, materia, ciudad, horas, turno, codigo])
+  },[escuela, materia, ciudad, horas, turno, codigo,orden,curso,division])
 
 
 
@@ -40,6 +46,9 @@ function App() {
       <div>
       <input onChange={(e)=>{setciudad(e.target.value)}} value={ciudad} name="ciudad" placeholder="Departamento"/>
         <input onChange={(e)=>{setescuela(e.target.value)}} value={escuela} name="escuela" placeholder="Escuela" />
+        <input onChange={(e)=>{setcurso(e.target.value)}} value={curso} name="curso" placeholder="Curso" />
+        <input onChange={(e)=>{setdivision(e.target.value)}} value={division} name="division" placeholder="Division" />
+        <input onChange={(e)=>{setorden(e.target.value)}} value={orden} name="orden" placeholder="Orden" />
         <input onChange={(e)=>{setcodigo(e.target.value)}} value={codigo} name="codigo" placeholder="Codigo"/>
         <input onChange={(e)=>{setmateria(e.target.value)}} value={materia} name="materia" placeholder="Materia"/>
         <input onChange={(e)=>{sethoras(e.target.value)}} value={horas} name="horas" placeholder="Horas"/>
@@ -50,6 +59,9 @@ function App() {
           <tr>
             <th scope='col'>Departamento</th>
             <th scope='col'>Escuela</th>
+            <th scope='col'>Curso</th>
+            <th scope='col'>Division</th>
+            <th scope='col'>Orden</th>
             <th scope='col'>Codigo</th>
             <th scope='col'>Materia</th>
             <th scope='col'>Horas</th>
@@ -61,9 +73,12 @@ function App() {
             data.map((d,i) => <tr key={i} scope='row'>
               <td className=''>{d.Ciudad.replace('0','').replace('5','').replace('3','').replace('7','')}</td>
               <td className=''><b>{d.Escuela}</b></td>
+              <td className=''><b>{d.Curso}○</b></td>
+              <td className=''><b>{d.Division}○</b></td>
+              <td className=''><b>{d.Orden}</b></td>
               <td className=''>{d.Codigo}</td>
               <td className=''>{d.Materia}</td>
-              <td className=''><b>{d.Horas}Hs</b></td>
+              <td className=''><b>{d.Horas.toString().replace('X','10').replace('Z','11')}Hs</b></td>
               <td className=''><b>{d.Turno === 'T' ? 'Tarde' : 'Mañana'}</b></td>
             </tr>)
           }
