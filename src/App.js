@@ -62,9 +62,9 @@ function App() {
         <tbody>
           <tr>
             <td><input onChange={(e)=>{setciudad(e.target.value)}} value={ciudad} name="ciudad" placeholder="Departamento"/></td>
-            <td><input onChange={(e)=>{setescuela(e.target.value)}} value={escuela} name="escuela" placeholder="Escuela" /></td>
-            <td><input onChange={(e)=>{setcurso(e.target.value)}} value={curso} name="curso" placeholder="Curso" /></td>
-            <td><input onChange={(e)=>{setdivision(e.target.value)}} value={division} name="division" placeholder="Division" /></td>
+            <td><input className='w-75' onChange={(e)=>{setescuela(e.target.value)}} value={escuela} name="escuela" placeholder="Escuela" /></td>
+            <td><input className='w-75' onChange={(e)=>{setcurso(e.target.value)}} value={curso} name="curso" placeholder="" /></td>
+            <td><input className='w-75' onChange={(e)=>{setdivision(e.target.value)}} value={division} name="division" placeholder="Division" /></td>
             <td><input onChange={(e)=>{setorden(e.target.value)}} value={orden} name="orden" placeholder="Orden" /></td>
             <td><input onChange={(e)=>{setcodigo(e.target.value)}} value={codigo} name="codigo" placeholder="Codigo"/></td>
             <td><input onChange={(e)=>{setmateria(e.target.value)}} value={materia} name="materia" placeholder="Materia"/></td>
@@ -75,8 +75,8 @@ function App() {
             data.map((d,i) => <tr key={i} scope='row'>
               <td className=''>{d.Ciudad.replace('0','').replace('5','').replace('3','').replace('7','')}</td>
               <td className=''><b>{d.Escuela}</b></td>
-              <td className=''><b>{d.Curso}○</b></td>
-              <td className=''><b>{d.Division}○</b></td>
+              <td className=''><b>{d.Curso}°</b></td>
+              <td className=''><b>{d.Division}°</b></td>
               <td className=''><b>{d.Orden}</b></td>
               <td className=''>{d.Codigo}</td>
               <td className=''>{d.Materia}</td>
